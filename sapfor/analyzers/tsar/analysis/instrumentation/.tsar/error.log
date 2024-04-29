@@ -1,0 +1,79 @@
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:67:28: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\n\n", DIVar);
+                  ~~       ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:72:43: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\nArrSize = %ju\n\n", DIVar, ArrSize);
+                  ~~                      ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:77:40: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\nDILoc = %s\n\n", DIVar, DILoc);
+                  ~~                   ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:77:47: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\nDILoc = %s\n\n", DIVar, DILoc);
+                              ~~              ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:82:40: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\nDILoc = %s\n\n", DIVar, DILoc);
+                  ~~                   ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:82:47: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\nDILoc = %s\n\n", DIVar, DILoc);
+                              ~~              ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:87:40: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\nDILoc = %s\n\n", DIVar, DILoc);
+                  ~~                   ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:87:47: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\nDILoc = %s\n\n", DIVar, DILoc);
+                              ~~              ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:92:40: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\nDILoc = %s\n\n", DIVar, DILoc);
+                  ~~                   ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:92:47: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIVar = %s\nDILoc = %s\n\n", DIVar, DILoc);
+                              ~~              ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:98:29: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIFunc = %s\n\n", DIFunc);
+                   ~~       ^~~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:103:29: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIFunc = %s\n\n", DIFunc);
+                   ~~       ^~~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:110:5: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+    DIVar, DIFunc, Position);
+    ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:110:12: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+    DIVar, DIFunc, Position);
+           ^~~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:117:5: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+    DIVar, ArrSize, DIFunc, Position);
+    ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:117:21: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+    DIVar, ArrSize, DIFunc, Position);
+                    ^~~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:122:43: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DILoc = %s\n\nDIFunc = %s\n\n", DILoc, DIFunc);
+                  ~~                      ^~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:122:50: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DILoc = %s\n\nDIFunc = %s\n\n", DILoc, DIFunc);
+                                 ~~              ^~~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:127:29: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DIFunc = %s\n\n", DIFunc);
+                   ~~       ^~~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:133:27: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DiLoop = %s\n", DILoop);
+                   ~~     ^~~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:144:7: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+      else
+      ^
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:149:7: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+      else
+      ^
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:154:7: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+      else
+      ^
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:161:29: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DILoop = %s\n\n", DILoop);
+                   ~~       ^~~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:166:29: warning: format specifies type 'char *' but the argument has type 'void *' [-Wformat]
+  printf("DILoop = %s\n\n", DILoop);
+                   ~~       ^~~~~~
+/workspaces/sapfor/analyzers/tsar/analysis/instrumentation/DAExample.cpp:167:32: warning: format specifies type 'long long' but the argument has type 'uint64_t' (aka 'unsigned long') [-Wformat]
+  printf("Iteration = %lld\n", Iter);
+                      ~~~~     ^~~~
+                      %lu

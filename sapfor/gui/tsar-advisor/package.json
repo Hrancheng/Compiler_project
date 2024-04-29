@@ -1,0 +1,386 @@
+{
+  "name": "tsar-advisor",
+  "displayName": "TSAR Advisor",
+  "description": "This tool performs user-guided program transformations and proposes some useful information about a program to simplify its parallelization.",
+  "version": "0.0.4",
+  "publisher": "DVM",
+  "homepage": "http://dvm-system.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dvm-system/tsar-advisor"
+  },
+  "icon": "images/logo.png",
+  "keywords": [
+    "parallel programming",
+    "program analysis",
+    "program transformation",
+    "automated parallelization"
+  ],
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "engines": {
+    "vscode": "^1.40.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:tsar.start",
+    "onCommand:tsar.analysis.check",
+    "onCommand:tsar.transform.propagate",
+    "onCommand:tsar.transform.inline",
+    "onCommand:tsar.transform.replace",
+    "onCommand:tsar.transform.dedecls",
+    "onCommand:tsar.transform.rename",
+    "onCommand:tsar.parallel.openmp",
+    "onCommand:tsar.parallel.dvmh",
+    "onCommand:tsar.parallel.dvmhsm"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "configuration": [
+      {
+        "title": "TSAR Advisor",
+        "properties": {
+          "tsar-advisor.compilation.cIncludePath": {
+            "description": "Specifies a list of directories to look for header files while C language is processed.",
+            "type": "array"
+          },
+          "tsar-advisor.compilation.c++IncludePath": {
+            "description": "Specifies a list of directories to look for header files while C++ language is processed.",
+            "type": "array"
+          },
+          "tsar-advisor.advanced.environment.enabled": {
+            "description": "Use default environment variables while a project is processed. This option is useful if compiler unable to find builtin header files. Under Windows it enables search for Microsoft Visual Studio and under Linux it enables search for available Clang or GCC compilers.",
+            "type": "boolean",
+            "default": false
+          },
+          "tsar-advisor.advanced.environment.linuxCCompiler": {
+            "markdownDescription": "Path to C-compatible language compiler which should be used to establish environment under Linux. This option make sense if the `#tsar-advisor.advanced.environment.enabled#` is on. If no path is specified 'clang' and 'gcc' will be tried subsequently.",
+            "type": "string",
+            "default": ""
+          },
+          "tsar-advisor.advanced.log.enabled": {
+            "description": "Enable logging. Attention, the size of the log file is not limited. The data will be written to the log file while disk space is available.",
+            "type": "boolean",
+            "default": false
+          },
+          "tsar-advisor.advanced.analysisServer": {
+            "description": "Analysis server which is used to analyze a project. Set path to the analysis server executable if it is not available in the PATH environment variable.",
+            "type": "string",
+            "default": "tsar-server"
+          }
+        }
+      }
+    ],
+    "snippets": [
+      {
+        "language": "c",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "cpp",
+        "path": "./snippets.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "tsar-explorer",
+          "title": "TSAR Explorer",
+          "icon": "./icons/logo.svg"
+        }
+      ]
+    },
+    "views": {
+      "tsar-explorer": [
+        {
+          "id": "tsar.loopTree",
+          "name": "Loop Tree"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "tsar.loopTree",
+        "contents": "Please, choose project to analyze."
+      }
+    ],
+    "commands": [
+      {
+        "command": "tsar.start",
+        "title": "TSAR Analyze"
+      },
+      {
+        "command": "tsar.stop",
+        "title": "TSAR Close session",
+        "icon": "icons/close.svg"
+      },
+      {
+        "command": "tsar.statistic",
+        "title": "Show project statistic",
+        "icon": "icons/analyze.svg"
+      },
+      {
+        "command": "tsar.analysis.check",
+        "title": "Check User-defined Properties"
+      },
+      {
+        "command": "tsar.transform.propagate",
+        "title": "Expression Propagation"
+      },
+      {
+        "command": "tsar.transform.inline",
+        "title": "Function Inlining"
+      },
+      {
+        "command": "tsar.transform.replace",
+        "title": "Structure Replacement"
+      },
+      {
+        "command": "tsar.transform.rename",
+        "title": "Local Renaming"
+      },
+      {
+        "command": "tsar.transform.dedecls",
+        "title": "Dead Declarations Elimination"
+      },
+      {
+        "command": "tsar.parallel.openmp",
+        "title": "Parallelization with OpenMP"
+      },
+      {
+        "command": "tsar.parallel.dvmh",
+        "title": "Parallelization with DVMH"
+      },
+      {
+        "command": "tsar.parallel.dvmhsm",
+        "title": "Shared Memory Parallelization with DVMH"
+      },
+      {
+        "command": "tsar.loopTree.goto",
+        "title": "Go to Source Code"
+      },
+      {
+        "command": "tsar.func.analyze",
+        "title": "Analyze Function",
+        "icon": "icons/analyze.svg"
+      },
+      {
+        "command": "tsar.alias.tree",
+        "title": "Build Alias Tree",
+        "icon": "icons/alias-tree.svg"
+      },
+      {
+        "command": "tsar.call.graph",
+        "title": "Build Call Graph",
+        "icon": "icons/call-graph.svg"
+      },
+      {
+        "command": "tsar.call.graph.io",
+        "title": "View I/O Operations",
+        "icon": "icons/call-graph.svg"
+      },
+      {
+        "command": "tsar.call.graph.exit",
+        "title": "View Possible Exits",
+        "icon": "icons/call-graph.svg"
+      },
+      {
+        "command": "tsar.call.graph.unsafe",
+        "title": "View Unsafe Control Flow",
+        "icon": "icons/call-graph.svg"
+      }
+    ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "tsar.call.graph.io",
+          "when": "view == tsar.loopTree && viewItem == function"
+        },
+        {
+          "command": "tsar.call.graph.exit",
+          "when": "view == tsar.loopTree && viewItem == function"
+        },
+        {
+          "command": "tsar.call.graph.unsafe",
+          "when": "view == tsar.loopTree && viewItem == function"
+        },
+        {
+          "command": "tsar.call.graph.io",
+          "when": "view == tsar.loopTree && viewItem == loop"
+        },
+        {
+          "command": "tsar.call.graph.exit",
+          "when": "view == tsar.loopTree && viewItem == loop"
+        },
+        {
+          "command": "tsar.call.graph.unsafe",
+          "when": "view == tsar.loopTree && viewItem == loop"
+        },
+        {
+          "command": "tsar.stop",
+          "when": "view == tsar.loopTree && viewItem == project",
+          "group": "inline"
+        },
+        {
+          "command": "tsar.statistic",
+          "when": "view == tsar.loopTree && viewItem == project",
+          "group": "inline"
+        },
+        {
+          "command": "tsar.func.analyze",
+          "when": "view == tsar.loopTree && viewItem == function",
+          "group": "inline"
+        },
+        {
+          "command": "tsar.alias.tree",
+          "when": "view == tsar.loopTree && viewItem == loop",
+          "group": "inline"
+        },
+        {
+          "command": "tsar.call.graph",
+          "when": "view == tsar.loopTree && viewItem == function",
+          "group": "inline"
+        },
+        {
+          "command": "tsar.call.graph",
+          "when": "view == tsar.loopTree && viewItem == loop",
+          "group": "inline"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "tsar.start",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "1_tsar"
+        },
+        {
+          "submenu": "tsar.submenu.check",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp'",
+          "group": "1_tsar"
+        },
+        {
+          "submenu": "tsar.submenu.tfm",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp'",
+          "group": "1_tsar"
+        },
+        {
+          "submenu": "tsar.submenu.parallel",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp'",
+          "group": "1_tsar"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "tsar.start",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "1_tsar"
+        },
+        {
+          "submenu": "tsar.submenu.check",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp'",
+          "group": "1_tsar"
+        },
+        {
+          "submenu": "tsar.submenu.tfm",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp'",
+          "group": "1_tsar"
+        },
+        {
+          "submenu": "tsar.submenu.parallel",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp'",
+          "group": "1_tsar"
+        }
+      ],
+      "tsar.submenu.tfm": [
+        {
+          "command": "tsar.transform.replace",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "naviagtion"
+        },
+        {
+          "command": "tsar.transform.propagate",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "naviagtion"
+        },
+        {
+          "command": "tsar.transform.inline",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "naviagtion"
+        },
+        {
+          "command": "tsar.transform.dedecls",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "naviagtion"
+        },
+        {
+          "command": "tsar.transform.rename",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "naviagtion"
+        }
+      ],
+      "tsar.submenu.parallel": [
+        {
+          "command": "tsar.parallel.openmp",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "naviagtion"
+        },
+        {
+          "command": "tsar.parallel.dvmhsm",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "naviagtion"
+        },
+        {
+          "command": "tsar.parallel.dvmh",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "naviagtion"
+        }
+      ],
+      "tsar.submenu.check": [
+        {
+          "command": "tsar.analysis.check",
+          "when": "resourceLangId == 'c' || resourceLangId == 'cpp' || resourceLangId == 'llvm'",
+          "group": "naviagtion"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "tsar.submenu.tfm",
+        "label": "TSAR Transform"
+      },
+      {
+        "id": "tsar.submenu.parallel",
+        "label": "TSAR Parallelize"
+      },
+      {
+        "id": "tsar.submenu.check",
+        "label": "TSAR Check"
+      }
+    ]
+  },
+  "scripts": {
+    "prepublish-clean": "rimraf out",
+    "prepublish-ts": "tsc -p ./",
+    "prepublish-css": "catw ./html/*.css > ./out/src/style.css",
+    "vscode:prepublish": "npm-run-all -n prepublish-clean prepublish-ts prepublish-css",
+    "watch-ts": "tsc -watch -p ./",
+    "watch-css": "catw ./html/*.css -o ./out/src/style.css -v",
+    "watch": "npm-run-all -c -n -p watch-ts watch-css"
+  },
+  "devDependencies": {
+    "typescript": "^3.8",
+    "@types/vscode": "^1.40.0",
+    "@types/node": "^12.8.1",
+    "catw": "~1.0.1",
+    "npm-run-all": "~4.1.5",
+    "rimraf": "~3.0.0"
+  },
+  "extensionDependencies": [],
+  "dependencies": {
+    "bootstrap": "~4.3.1",
+    "jquery": "^3.4.1",
+    "vis-network": "~6.3.2",
+    "which": "~2.0.2"
+  }
+}

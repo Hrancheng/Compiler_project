@@ -1,0 +1,5 @@
+/workspaces/sapfor/analyzers/tsar/analysis/analysis/match/match_3.c:3:3: remark: parallel execution of loop is possible
+  do
+  ^
+/workspaces/sapfor/analyzers/tsar/analysis/analysis/match/match_3.c:3:3: warning: unable to create parallel directive for loop not in canonical form
+1 warning generated.

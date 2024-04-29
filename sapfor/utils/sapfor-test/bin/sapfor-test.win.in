@@ -1,0 +1,2 @@
+@echo off
+call "@ST_PERL_EXECUTABLE@" -I "%~dp0/@ST_LIBRARY_PATH@" "%~dp0/sapfor-test.pl" %*

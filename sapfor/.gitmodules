@@ -1,0 +1,12 @@
+[submodule "analyzers/tsar"]
+	path = analyzers/tsar
+	url = https://github.com/dvm-system/tsar.git
+[submodule "analyzers/dyna"]
+	path = analyzers/dyna
+	url = https://github.com/dvm-system/dyna.git
+[submodule "bcl"]
+	path = bcl
+	url = https://github.com/dvm-system/bcl.git
+[submodule "gui/tsar-advisor"]
+	path = gui/tsar-advisor
+	url = https://github.com/dvm-system/tsar-advisor.git

@@ -1,0 +1,28 @@
+html, body { height: 100%; }
+
+.source-link {
+  color: darkorange;
+  text-decoration: none;
+}
+
+.number {
+  color: burlywood;
+}
+
+.table-row:hover {
+  background-color: var(--light);
+}
+
+.table-row-success {
+  background-color: honeydew;
+}
+
+.clear{
+  padding: 0;
+  display: block;
+  width: 0;
+  height: 0 !important;
+  clear: both !important;
+  overflow: hidden;
+  visibility: hidden;
+}

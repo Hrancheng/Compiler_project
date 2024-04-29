@@ -1,0 +1,10 @@
+add_subdirectory(Support)
+add_subdirectory(Analysis)
+add_subdirectory(Transform)
+add_subdirectory(Unparse)
+add_subdirectory(Frontend)
+if(APC_FOUND)
+  add_subdirectory(APC)
+endif()
+add_subdirectory(Core)
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sapfor_test_dir=`dirname $0`
+"@ST_PERL_EXECUTABLE@" -I "$sapfor_test_dir/@ST_LIBRARY_PATH@" "$sapfor_test_dir/sapfor-test.pl" "$@"
+

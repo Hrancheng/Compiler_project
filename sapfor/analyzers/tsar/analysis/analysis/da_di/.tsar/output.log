@@ -1,0 +1,7 @@
+{"name":"Socket","TSARVersion":"3.0.0-alpha.2+dirty","Date":"2024-04-28 21:50:59","Status":"send","ServerAddress":"127.0.0.1","ServerPort":45951,"ClientAddress":"127.0.0.1","ClientPort":35350,"Message":"data is sent"}
+{"name":"Socket","TSARVersion":"3.0.0-alpha.2+dirty","Date":"2024-04-28 21:50:59","Status":"receive","ServerAddress":"127.0.0.1","ServerPort":45951,"ClientAddress":"127.0.0.1","ClientPort":35350,"Message":"data is received"}
+start!!!!!!
+{"name":"Socket","TSARVersion":"3.0.0-alpha.2+dirty","Date":"2024-04-28 21:50:59","Status":"send","ServerAddress":"127.0.0.1","ServerPort":45951,"ClientAddress":"127.0.0.1","ClientPort":35350,"Message":"data is sent"}
+{"name":"Socket","TSARVersion":"3.0.0-alpha.2+dirty","Date":"2024-04-28 21:50:59","Status":"send","ServerAddress":"127.0.0.1","ServerPort":45951,"ClientAddress":"127.0.0.1","ClientPort":35350,"Message":"data is sent"}
+{"name":"Socket","TSARVersion":"3.0.0-alpha.2+dirty","Date":"2024-04-28 22:02:24","Status":"close","ServerAddress":"127.0.0.1","ServerPort":45991,"ClientAddress":"127.0.0.1","ClientPort":49458,"Message":"socket is closed"}
+is closed"}

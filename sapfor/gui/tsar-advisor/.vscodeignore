@@ -1,0 +1,14 @@
+html/**
+.vscode/**
+out/test/**
+test/**
+src/**
+addon/**
+build/**
+log/**
+**/*.map
+.editorconfig
+.gitignore
+tsconfig.json
+vsc-extension-quickstart.md
+npm-**

@@ -1,0 +1,3 @@
+/workspaces/sapfor/analyzers/tsar/analysis/sapfor_test_cases/test27.cpp:4:5: remark: parallel execution of loop is possible
+    for (I = 1; I < 10; I++) {
+    ^
